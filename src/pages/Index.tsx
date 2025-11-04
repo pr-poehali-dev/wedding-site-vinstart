@@ -1,17 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 const Index = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      setScrollY(window.scrollY);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -22,93 +19,26 @@ const Index = () => {
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const services = [
+  const features = [
     {
-      title: "Классическая съёмка",
-      price: "от 50 000 ₽",
-      features: ["Полный день съёмки", "Обработка фото", "Онлайн-галерея", "USB с фотографиями"],
-      icon: "Camera"
+      title: "Кошельки",
+      description: "Участвуйте в пулах валидаторов прямо из своего кошелька.",
+      icon: "Wallet"
     },
     {
-      title: "Видеосъёмка",
-      price: "от 80 000 ₽",
-      features: ["Полный день съёмки", "Монтаж клипа", "Съёмка дроном", "Цветокоррекция"],
-      icon: "Video"
+      title: "Tonstakers",
+      description: "Минимальная сумма - 1 TON с мгновенным выводом.",
+      icon: "Coins"
     },
     {
-      title: "Премиум пакет",
-      price: "от 150 000 ₽",
-      features: ["Фото + Видео", "Два оператора", "Love Story съёмка", "Печатный альбом"],
-      icon: "Sparkles"
-    }
-  ];
-
-  const portfolio = [
-    {
-      image: "https://cdn.poehali.dev/projects/36f31bed-1b6e-4080-b847-e41fe15aab77/files/2bec7ff5-51dc-4080-ab86-43052b4db91a.jpg",
-      title: "Романтическая церемония",
-      description: "Анна и Дмитрий"
+      title: "bemo",
+      description: "Institutional grade liquid staking for TON holders of any size.",
+      icon: "Building2"
     },
     {
-      image: "https://cdn.poehali.dev/projects/36f31bed-1b6e-4080-b847-e41fe15aab77/files/74678df3-cdd6-42f4-a2d5-b832d2a9e734.jpg",
-      title: "Детали дня",
-      description: "Каждая мелочь важна"
-    },
-    {
-      image: "https://cdn.poehali.dev/projects/36f31bed-1b6e-4080-b847-e41fe15aab77/files/0578f50e-5695-47ce-9002-2bcd76bded0d.jpg",
-      title: "Искренние эмоции",
-      description: "Елена и Максим"
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: "Анна и Дмитрий",
-      text: "VINSTART превзошли все наши ожидания! Каждый кадр — это произведение искусства. Спасибо за эти незабываемые воспоминания!",
-      rating: 5
-    },
-    {
-      name: "Елена и Максим",
-      text: "Профессионализм на высшем уровне. Ребята работали незаметно, но при этом запечатлели все важные моменты. Рекомендуем!",
-      rating: 5
-    },
-    {
-      name: "Мария и Алексей",
-      text: "Потрясающая работа! Фотографии получились волшебными, а видео мы пересматриваем до сих пор. Огромное спасибо команде!",
-      rating: 5
-    }
-  ];
-
-  const workflow = [
-    {
-      step: "01",
-      title: "Знакомство",
-      description: "Встречаемся, обсуждаем ваши пожелания и планируем день съёмки",
-      icon: "Users"
-    },
-    {
-      step: "02",
-      title: "Подготовка",
-      description: "Создаём таймлайн, выбираем локации и продумываем каждую деталь",
-      icon: "Calendar"
-    },
-    {
-      step: "03",
-      title: "Съёмка",
-      description: "В день свадьбы работаем максимально незаметно и профессионально",
-      icon: "Camera"
-    },
-    {
-      step: "04",
-      title: "Обработка",
-      description: "Тщательно отбираем и обрабатываем каждый кадр с любовью",
-      icon: "Edit"
-    },
-    {
-      step: "05",
-      title: "Результат",
-      description: "Передаём готовые материалы и создаём вашу семейную реликвию",
-      icon: "Gift"
+      title: "Stakee",
+      description: "Стейкинг от 1 TON с моментальным выводом прямо в Telegram.",
+      icon: "Send"
     }
   ];
 
@@ -116,231 +46,125 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <nav 
         className={`fixed w-full z-50 transition-all duration-300 ${
-          scrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
+          scrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-white"
         }`}
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <h1 className={`text-3xl font-serif font-semibold tracking-wide transition-colors ${
-              scrolled ? "text-primary" : "text-white"
-            }`}>
-              VINSTART
-            </h1>
-            <div className="hidden md:flex gap-8">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
+                <Icon name="Gem" size={18} className="text-white" />
+              </div>
+              <h1 className="text-xl font-semibold text-primary">TON</h1>
+            </div>
+            <div className="hidden md:flex gap-8 items-center">
               <button 
-                onClick={() => scrollToSection("portfolio")}
-                className={`text-sm font-light transition-colors ${
-                  scrolled ? "text-primary hover:text-secondary" : "text-white hover:text-secondary"
-                }`}
+                onClick={() => scrollToSection("how-to-use")}
+                className="text-sm text-primary hover:text-blue-600 transition-colors"
               >
-                Портфолио
+                Как пользоваться
               </button>
               <button 
-                onClick={() => scrollToSection("services")}
-                className={`text-sm font-light transition-colors ${
-                  scrolled ? "text-primary hover:text-secondary" : "text-white hover:text-secondary"
-                }`}
+                onClick={() => scrollToSection("about")}
+                className="text-sm text-primary hover:text-blue-600 transition-colors"
               >
-                Услуги
+                О сети
               </button>
               <button 
-                onClick={() => scrollToSection("workflow")}
-                className={`text-sm font-light transition-colors ${
-                  scrolled ? "text-primary hover:text-secondary" : "text-white hover:text-secondary"
-                }`}
+                onClick={() => scrollToSection("create")}
+                className="text-sm text-primary hover:text-blue-600 transition-colors"
               >
-                Процесс
+                Создавайте
               </button>
               <button 
-                onClick={() => scrollToSection("contact")}
-                className={`text-sm font-light transition-colors ${
-                  scrolled ? "text-primary hover:text-secondary" : "text-white hover:text-secondary"
-                }`}
+                onClick={() => scrollToSection("community")}
+                className="text-sm text-primary hover:text-blue-600 transition-colors"
               >
-                Контакты
+                Сообщество
+              </button>
+              <button className="flex items-center gap-2 text-sm text-primary hover:text-blue-600 transition-colors">
+                <Icon name="Globe" size={16} />
+                Рус
               </button>
             </div>
           </div>
         </div>
       </nav>
 
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 z-10"></div>
-        <video 
-          ref={videoRef}
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="https://cdn.coverr.co/videos/coverr-bride-and-groom-walking-together-1759/1080p.mp4" type="video/mp4" />
-          <source src="https://cdn.coverr.co/videos/coverr-wedding-couple-walking-in-garden-8247/1080p.mp4" type="video/mp4" />
-        </video>
-        <div 
-          className="relative z-20 text-center text-white px-6 animate-fade-in"
-          style={{ transform: `translateY(${scrollY * 0.3}px)` }}
-        >
-          <h2 className="font-serif text-6xl md:text-8xl font-light mb-6 tracking-wide">
-            Ваша история любви
-          </h2>
-          <p className="text-lg md:text-xl font-light mb-12 max-w-2xl mx-auto opacity-90">
-            Запечатлеем самые важные моменты вашей свадьбы с душой и вниманием к деталям
-          </p>
-          <Button 
-            onClick={() => scrollToSection("portfolio")}
-            size="lg"
-            className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all font-light px-8 py-6 text-base"
-          >
-            Узнать больше
-          </Button>
-        </div>
-      </section>
-
-      <section id="portfolio" className="py-24 px-6 bg-muted/20">
-        <div className="container mx-auto">
-          <h2 className="font-serif text-5xl md:text-6xl text-center mb-4">
-            Портфолио
-          </h2>
-          <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
-            Каждая свадьба уникальна. Посмотрите на наши работы
-          </p>
-          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {portfolio.map((item, index) => (
-              <div 
-                key={index}
-                className="group relative overflow-hidden rounded-lg aspect-[3/4] animate-scale-in cursor-pointer"
-                style={{ animationDelay: `${index * 100}ms` }}
+      <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="animate-fade-in">
+              <h2 className="text-5xl md:text-6xl font-bold mb-6 text-primary leading-tight">
+                Повышайте безопасность сети
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                Используйте свои Toncoin, чтобы помочь Валидаторам поддерживать безопасность сети и получать вознаграждения.
+              </p>
+              <Button 
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-base rounded-full"
               >
-                <img 
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="font-serif text-2xl mb-2">{item.title}</h3>
-                    <p className="text-sm opacity-90">{item.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="services" className="py-24 px-6">
-        <div className="container mx-auto">
-          <h2 className="font-serif text-5xl md:text-6xl text-center mb-4">
-            Наши услуги
-          </h2>
-          <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
-            Выберите пакет, который идеально подойдёт для вашего особенного дня
-          </p>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {services.map((service, index) => (
-              <Card 
-                key={index}
-                className="p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 animate-scale-in border-muted group"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="mb-6 flex justify-center">
-                  <div className="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center group-hover:bg-secondary/30 transition-colors duration-300 group-hover:scale-110">
-                    <Icon name={service.icon} size={32} className="text-primary" />
-                  </div>
-                </div>
-                <h3 className="font-serif text-2xl mb-3 text-center">
-                  {service.title}
-                </h3>
-                <p className="text-3xl font-serif text-center mb-6 text-primary">
-                  {service.price}
-                </p>
-                <ul className="space-y-3 mb-8">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-sm">
-                      <Icon name="Check" size={18} className="text-secondary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button 
-                  className="w-full bg-primary hover:bg-primary/90 hover:scale-105 transition-all"
-                  onClick={() => scrollToSection("contact")}
-                >
-                  Забронировать
-                </Button>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="workflow" className="py-24 px-6 bg-muted/20">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="font-serif text-5xl md:text-6xl text-center mb-4">
-            Как мы работаем
-          </h2>
-          <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
-            Простой и понятный процесс от знакомства до получения результата
-          </p>
-          <div className="space-y-8">
-            {workflow.map((item, index) => (
-              <div 
-                key={index}
-                className="flex flex-col md:flex-row items-center gap-8 animate-fade-in group"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="flex-shrink-0">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center text-white font-serif text-2xl group-hover:scale-110 transition-transform duration-300">
-                    {item.step}
-                  </div>
-                </div>
-                <div className="flex-grow">
-                  <Card className="p-6 hover:shadow-xl transition-all duration-300 border-muted">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center">
-                          <Icon name={item.icon} size={24} className="text-primary" />
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className="font-serif text-2xl mb-2">{item.title}</h3>
-                        <p className="text-muted-foreground">{item.description}</p>
+                Как работают валидаторы
+              </Button>
+            </div>
+            <div className="relative animate-scale-in">
+              <div className="absolute top-10 right-20 w-32 h-32 bg-blue-400 rounded-full opacity-20 blur-3xl"></div>
+              <div className="absolute bottom-20 left-10 w-40 h-40 bg-blue-500 rounded-full opacity-20 blur-3xl"></div>
+              <div className="relative z-10 flex items-center justify-center">
+                <div className="w-full max-w-md">
+                  <div className="relative">
+                    <div className="absolute -top-10 -right-10 w-32 h-32 rotate-45">
+                      <div className="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 opacity-80"></div>
+                    </div>
+                    <div className="absolute -top-5 right-20 w-24 h-24 rotate-12">
+                      <div className="w-full h-full bg-gradient-to-br from-blue-300 to-blue-500 opacity-70"></div>
+                    </div>
+                    <div className="relative w-64 h-64 mx-auto">
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-700 rounded-3xl transform rotate-6 opacity-90"></div>
+                      <div className="absolute inset-0 bg-gradient-to-tl from-blue-400 to-blue-600 rounded-3xl transform -rotate-6 opacity-80"></div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <Icon name="Gem" size={80} className="text-white z-10" />
                       </div>
                     </div>
-                  </Card>
+                  </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-24 px-6">
-        <div className="container mx-auto">
-          <h2 className="font-serif text-5xl md:text-6xl text-center mb-4">
-            Отзывы клиентов
-          </h2>
-          <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
-            Что говорят о нас пары, чьи свадьбы мы снимали
-          </p>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {testimonials.map((testimonial, index) => (
+      <section id="about" className="py-24 px-6 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+              TON — это сеть Proof-of-Stake
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Это означает, что ее безопасность и стабильность обеспечивают{" "}
+              <span className="text-blue-600 font-medium">валидаторы</span>. 
+              Валидаторам необходимо иметь большой объем Toncoin. Но даже с небольшим 
+              количеством Toncoin вы можете помочь защитить сеть, став участником пулов 
+              Номинаторов.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((feature, index) => (
               <Card 
                 key={index}
-                className="p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-scale-in border-muted"
+                className="p-6 hover:shadow-lg transition-all duration-300 border-gray-200 animate-scale-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="flex gap-1 mb-4 justify-center">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Icon key={i} name="Star" size={20} className="text-yellow-400 fill-yellow-400" />
-                  ))}
+                <div className="mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center">
+                    <Icon name={feature.icon as any} size={24} className="text-blue-600" />
+                  </div>
                 </div>
-                <p className="text-muted-foreground italic mb-6 text-center">
-                  "{testimonial.text}"
-                </p>
-                <p className="font-serif text-lg text-center text-primary">
-                  {testimonial.name}
+                <h3 className="text-xl font-semibold mb-3 text-primary">{feature.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {feature.description}
                 </p>
               </Card>
             ))}
@@ -348,78 +172,45 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-gradient-to-br from-secondary/20 to-accent/20">
+      <section className="py-20 px-6 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="font-serif text-5xl md:text-6xl mb-6">
-            Готовы создать вашу историю?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Свяжитесь с нами сегодня, чтобы обсудить детали вашей свадьбы и забронировать дату
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+              Начните зарабатывать с TON
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              Присоединяйтесь к тысячам пользователей, которые уже поддерживают безопасность сети
+            </p>
             <Button 
               size="lg"
-              className="bg-primary hover:bg-primary/90 hover:scale-105 transition-all px-8 py-6 text-base"
-              onClick={() => scrollToSection("contact")}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-6 text-base rounded-full"
             >
-              <Icon name="Mail" size={20} className="mr-2" />
-              Написать нам
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              className="border-2 hover:bg-primary hover:text-white hover:scale-105 transition-all px-8 py-6 text-base"
-            >
-              <Icon name="Phone" size={20} className="mr-2" />
-              Позвонить
+              Начать сейчас
             </Button>
           </div>
         </div>
       </section>
 
-      <footer id="contact" className="bg-primary text-primary-foreground py-16 px-6">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-            <div className="text-center md:text-left">
-              <h3 className="font-serif text-3xl mb-4">VINSTART</h3>
-              <p className="text-sm opacity-80">
-                Создаём истории любви с 2015 года
-              </p>
-            </div>
-            <div className="text-center">
-              <h4 className="font-serif text-xl mb-4">Контакты</h4>
-              <div className="space-y-2 text-sm opacity-80">
-                <p className="flex items-center justify-center gap-2">
-                  <Icon name="Phone" size={16} />
-                  +7 (999) 123-45-67
-                </p>
-                <p className="flex items-center justify-center gap-2">
-                  <Icon name="Mail" size={16} />
-                  info@vinstart.ru
-                </p>
-                <p className="flex items-center justify-center gap-2">
-                  <Icon name="MapPin" size={16} />
-                  Москва, Россия
-                </p>
+      <footer className="py-12 px-6 bg-white border-t">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
+                <Icon name="Gem" size={18} className="text-white" />
               </div>
+              <span className="text-xl font-semibold text-primary">TON</span>
             </div>
-            <div className="text-center md:text-right">
-              <h4 className="font-serif text-xl mb-4">Соцсети</h4>
-              <div className="flex gap-4 justify-center md:justify-end">
-                <a href="#" className="hover:opacity-70 hover:scale-110 transition-all">
-                  <Icon name="Instagram" size={24} />
-                </a>
-                <a href="#" className="hover:opacity-70 hover:scale-110 transition-all">
-                  <Icon name="Youtube" size={24} />
-                </a>
-                <a href="#" className="hover:opacity-70 hover:scale-110 transition-all">
-                  <Icon name="Send" size={24} />
-                </a>
-              </div>
+            <div className="flex gap-6">
+              <button className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Документация
+              </button>
+              <button className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                GitHub
+              </button>
+              <button className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Telegram
+              </button>
             </div>
-          </div>
-          <div className="text-center mt-12 pt-8 border-t border-primary-foreground/20 text-sm opacity-60">
-            © 2024 VINSTART. Все права защищены.
           </div>
         </div>
       </footer>
