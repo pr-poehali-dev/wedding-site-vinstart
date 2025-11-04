@@ -174,6 +174,7 @@ const Index = () => {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
+          <source src="https://cdn.coverr.co/videos/coverr-bride-and-groom-walking-together-1759/1080p.mp4" type="video/mp4" />
           <source src="https://cdn.coverr.co/videos/coverr-wedding-couple-walking-in-garden-8247/1080p.mp4" type="video/mp4" />
         </video>
         <div 
